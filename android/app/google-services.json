@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "409202831712",
+    "project_id": "heart-daejeon",
+    "storage_bucket": "heart-daejeon.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:409202831712:android:124b0a06556e997e5cae05",
+        "android_client_info": {
+          "package_name": "com.example.testver2_heart"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAEAh9U6Db4ogduNiAt2l5TK4bIexuJKcE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
