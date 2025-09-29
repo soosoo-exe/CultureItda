@@ -13,19 +13,41 @@ dependencies:
     sdk: flutter
   provider: ^6.1.5
   cupertino_icons: ^1.0.8
-
-  # Firebase 패키지
+  flutter_inappwebview: ^6.0.0
   firebase_core: ^2.32.0
+  firebase_auth: ^4.20.0
   cloud_firestore: ^4.17.5
-  firebase_auth: ^4.16.0
-
-  # HTTP 통신 (LLM API용)
   http: ^1.1.0
+  shared_preferences: ^2.2.2
+  intl: ^0.18.1
+  flukit: ^3.0.1
+  url_launcher: ^6.3.2
+  webview_flutter: ^4.13.0
+  table_calendar: ^3.0.9
+  geolocator: ^10.1.0
+  permission_handler: ^11.0.1
+  geocoding: ^2.1.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^3.0.0
+  # flutter_native_splash: ^2.3.2  # 완전 제거
+  hive_generator: ^2.0.1
+  build_runner: ^2.4.8
+  flutter_launcher_icons: "^0.13.1"
+
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/icons/icon.png"
+  remove_alpha_ios: true
+  min_sdk_android: 21
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/data/
+    - assets/icons/
+    - assets/fonts/
+    - assets/images/

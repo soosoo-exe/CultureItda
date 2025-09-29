@@ -1,3 +1,6 @@
+import java.io.FileInputStream
+import java.util.Properties
+
 plugins {
     id("com.android.application")
     // START: FlutterFire Configuration
@@ -33,11 +36,24 @@ android {
         versionName = flutter.versionName
     }
 
+    // 릴리즈 서명 설정을 위한 signingConfigs 블록 추가
+    signingConfigs {
+        create("release") {
+            // 여기에 여러분의 릴리즈 키스토어 정보를 직접 입력하세요.
+            // my-release-key.jks 파일은 android/app 폴더에 있어야 합니다.
+            storeFile = file("my-release-key.jks")
+            storePassword = "123456"
+            keyAlias = "my-alias"
+            keyPassword = "123456"
+        }
+    }
+
     buildTypes {
         release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
-            signingConfig = signingConfigs.getByName("debug")
+            signingConfig = signingConfigs.getByName("release")
+            // 코드 축소 및 Proguard 규칙을 활성화합니다.
+            isMinifyEnabled = true
+            proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
         }
     }
 }

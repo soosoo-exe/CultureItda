@@ -123,9 +123,11 @@ class FirebaseService {
       );
 
       if (currentUserId != null) {
-        await _usersCollection.doc(currentUserId).update({
+        // update() 대신 set()을 merge: true 옵션과 함께 사용
+        await _usersCollection.doc(currentUserId).set({
           'lastLoginAt': FieldValue.serverTimestamp(),
-        });
+          'email': email, // 사용자 정보도 함께 저장
+        }, SetOptions(merge: true));
       }
 
       return null;
@@ -487,14 +489,14 @@ class FirebaseService {
 몸을 움직이며 건강하게 스트레스를 풀어보세요!""";
     }
 
-    return """안녕하세요! 😊 대전시의 다양한 문화체험을 추천해드릴 수 있어요.
+    return """안녕하세요! 대전광역시의 다양한 문화체험을 추천해드릴 수 있어요.
 현재 기분이나 원하는 활동을 알려주시면:
 • 🎨 예술/공예 체험
 • 🍳 요리/베이킹 클래스  
 • 🌿 자연/힐링 프로그램
 • 🏛️ 전통문화 체험
 • 🎵 음악/공연 관람
-맞춤 추천을 해드릴게요! 어떤 기분이신지 자유롭게 말씀해주세요.""";
+맞춤 추천을 해드릴게요! 어느 부분에 관심이 있는지 알려주세요!.""";
   }
 
   /// 대화 내역 저장
